@@ -47,5 +47,6 @@ public class SetAByte : MonoBehaviour
     {
         value ^= (1 << bitIndex); 
         UpdateBits();
+        // Ja dit script is zelf geschreven \\
     }
 }
