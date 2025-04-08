@@ -63,7 +63,9 @@
     <Compile Include="Assets\scripts\Changecollorbutten.cs" />
     <Compile Include="Assets\scripts\sc.cs" />
     <Compile Include="Assets\scripts\set_a_Byte.cs" />
+    <Compile Include="Assets\collormap.cs" />
     <Compile Include="Assets\scripts\mainuiloader.cs" />
+    <Compile Include="Assets\scripts\Bytemap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
