@@ -16,12 +16,9 @@ public class Bytemap : MonoBehaviour
     {
         List<GameObject> list = new List<GameObject>();
          Update();
-    }
-
-    // Update is called once per frame
+    }  
     void Update()
-    {
-        
+    { 
     }
     public void SetValue(int newValue)
     {
