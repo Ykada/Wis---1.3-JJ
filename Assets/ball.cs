@@ -8,7 +8,6 @@ public class Ball : MonoBehaviour
     Vector2 min, max;
     float speed = 3;
     Vector3 velocity;
-
     void Start()
     {
         direction = direction.normalized;
@@ -18,6 +17,7 @@ public class Ball : MonoBehaviour
     {
         velocity = direction * speed * Time.deltaTime;
         transform.position += velocity;
+
         if (transform.position.x + transform.localScale.x / 2 > max.x)
         {
             direction.x = -direction.x;
