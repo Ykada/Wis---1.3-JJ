@@ -1,38 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Ball : MonoBehaviour
 {
-    Vector3 direction = new Vector3(1, 2, 0);
-    Vector2 min, max;
-    float speed = 3;
-    Vector3 velocity;
+    public float speed = 7f;
+    [SerializeField] private Transform A;
+    [SerializeField] private Transform B;
+    [SerializeField] private Transform ball;
+    private Vector3 Vec;
+    private Vector3 Dir;
+    private float Dis;
+    private float Dur;
+    private float time = 0f;
+    private bool ATB = true;
     void Start()
     {
-        direction = direction.normalized;
-        min = Camera.main.ScreenToWorldPoint(Vector2.zero); max = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        ball.position = A.position;
+        Vec = B.position - A.position;
+        Dis = Vec.magnitude;
+        Dir = Vec.normalized;
+        Dur = Dis / speed;
     }
     void Update()
     {
-        velocity = direction * speed * Time.deltaTime;
-        transform.position += velocity;
-
-        if (transform.position.x + transform.localScale.x / 2 > max.x)
+        time += Time.deltaTime;
+        if (ATB)
         {
-            direction.x = -direction.x;
+            Dir = (B.position - A.position).normalized;
         }
-        if (transform.position.x - transform.localScale.x / 2 < min.x)
+        else
         {
-            direction.x = -direction.x;
+            Dir = (A.position - B.position).normalized;
         }
-        if (transform.position.y + transform.localScale.y / 2 > max.y)
+        ball.position += Dir * speed * Time.deltaTime;
+        if (time > Dur)
         {
-            direction.y = -direction.y;
-        }
-        if (transform.position.y - transform.localScale.y / 2 < min.y)
-        {
-            direction.y = -direction.y;
+            time = 0f;
+            ATB = !ATB;
         }
     }
 }
