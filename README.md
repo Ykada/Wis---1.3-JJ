@@ -6,3 +6,7 @@ https://github.com/Ykada/Wis---1.3-JJ/blob/main/Assets/scripts/Reactietestbutten
 Opdracht 2
 
 https://github.com/Ykada/Wis---1.3-JJ/blob/main/Assets/ball.cs
+
+Opdracht 3
+
+https://github.com/Ykada/Wis---1.3-JJ/blob/main/Assets/ball.cs
