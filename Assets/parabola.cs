@@ -7,7 +7,8 @@ public class parabola : MonoBehaviour
     [SerializeField] point point;
     private int numberofpoints = 10;
     Vector2 minscreen, maxscreen;
-    
+
+    private QuadetricFunction f;
 
     private void Start()
     {
@@ -16,11 +17,14 @@ public class parabola : MonoBehaviour
 
         float dx = (maxscreen.x - minscreen.x) / numberofpoints;
 
+        f = new QuadetricFunction(1, 2, 3);
+
         for (int i = 0; i < numberofpoints; i++)
         {
             float x_pos = minscreen.x + i * dx;
+            float y_pos = f.gety(x_pos);
             point copyofpoint = Instantiate(point);
-            copyofpoint.transform.position = new Vector3(x_pos, 0, 0);
+            copyofpoint.transform.position = new Vector3(x_pos, y_pos, 0);
         }
     }
 
