@@ -62,8 +62,12 @@
   <ItemGroup>
     <Compile Include="Assets\scripts\Changecollorbutten.cs" />
     <Compile Include="Assets\scripts\sc.cs" />
+    <Compile Include="Assets\point.cs" />
+    <Compile Include="Assets\2.1\Les 2\Ponts.cs" />
+    <Compile Include="Assets\2.1\Les 2\Parabola.cs" />
     <Compile Include="Assets\scripts\set_a_Byte.cs" />
     <Compile Include="Assets\collormap.cs" />
+    <Compile Include="Assets\parabola.cs" />
     <Compile Include="Assets\Balmovement.cs" />
     <Compile Include="Assets\scripts\Reactietestbutten.cs" />
     <Compile Include="Assets\ball.cs" />
