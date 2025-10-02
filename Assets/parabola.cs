@@ -5,7 +5,7 @@ using UnityEngine;
 public class parabola : MonoBehaviour
 {
     [SerializeField] private point pointPrefab;
-    private int numberOfPoints = 10;
+    private int numberOfPoints = 100;
     private Vector2 minscreen, maxscreen;
 
     private QuadetricFunction f;
@@ -33,14 +33,14 @@ public class parabola : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        minscreen = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
+        minscreen = Camera.main.ScreenToWorldPoint(Vector2.zero);
         maxscreen = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
         float dx = (maxscreen.x - minscreen.x) / numberOfPoints;
 
         f = new QuadetricFunction(a, b, c);
 
-        for (int i = 0; i < numberOfPoints; i++)
+        for (int i = 0; i <= numberOfPoints; i++)
         {
             float x_pos = minscreen.x + i * dx;
             float y_pos = f.gety(x_pos);
