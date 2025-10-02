@@ -65,6 +65,7 @@
     <Compile Include="Assets\scripts\sc.cs" />
     <Compile Include="Assets\point.cs" />
     <Compile Include="Assets\2.1\Les 2\Ponts.cs" />
+    <Compile Include="Assets\2.1\les 3\Jumpingblock.cs" />
     <Compile Include="Assets\2.1\Les 2\Parabola.cs" />
     <Compile Include="Assets\scripts\set_a_Byte.cs" />
     <Compile Include="Assets\collormap.cs" />
