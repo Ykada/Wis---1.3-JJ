@@ -5,56 +5,58 @@ using UnityEngine;
 public class Jumpingblock : MonoBehaviour
 {
     [SerializeField] private Transform block;
-    [SerializeField] private Vector3 accelerationbegin;
-    [SerializeField] private Vector3 velocitybegin;
+    [SerializeField] private Vector3 accelerationBegin;
+    [SerializeField] private Vector3 velocityBegin;
 
-
-    private Vector3 acceleration;
     private Vector3 velocity;
+    private Vector3 acceleration;
+    private float t = 0;
 
-    enum State { Falling, Jumping };
-    private State mystate = State.Falling;
+    private float yMin;
 
-    float ymin;
+    enum State
+    {
+        onGround, airBorne
+    }
+
+    private State myState = State.onGround;
 
     private void Start()
     {
-        velocity = velocitybegin;
-        acceleration = accelerationbegin;
-
-        ymin = block.position.y;
+        yMin = block.position.y;
     }
 
     private void Update()
     {
-        if (mystate == State.Falling) {
+        if (myState == State.onGround)
+        {
+            t = 0;
+            velocity = Vector3.zero;
+            acceleration = Vector3.zero;
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                velocity.y = 1f;
-                mystate = State.Jumping;
-                Debug.Log("Jumping");
+                velocity = velocityBegin;
+                acceleration = accelerationBegin;
+                myState = State.airBorne;
             }
         }
-        if (mystate == State.Jumping)
+
+        if (myState == State.airBorne)
         {
-            if (block.position.y <= ymin)
+            t += Time.deltaTime;
+            if (block.position.y < yMin)
             {
-                mystate = State.Falling;
+                Debug.Log(t);
+                myState = State.onGround;
                 velocity = Vector3.zero;
                 acceleration = Vector3.zero;
-                block.position = new Vector3(block.position.x, ymin, block.position.z);
-            }    
+                block.position = new Vector3(block.position.x, yMin, block.position.z);
+            }
         }
 
         velocity += acceleration * Time.deltaTime;
         block.position += velocity * Time.deltaTime;
-        if (block.position.y < 0)
-        {
-            Vector3 pos = block.position;
-            pos.y = 0;
-            block.position = pos;
-            velocity.y = -velocity.y * 0.8f;
-        }
-    }
 
+    }
 }

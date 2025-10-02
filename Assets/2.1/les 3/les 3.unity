@@ -313,8 +313,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 900717976}
-  accelerationbegin: {x: 0, y: -2, z: 0}
-  velocitybegin: {x: 0, y: 3, z: 0}
+  accelerationBegin: {x: 0, y: -2, z: 0}
+  velocityBegin: {x: 0, y: 3, z: 0}
 --- !u!61 &900717978
 BoxCollider2D:
   m_ObjectHideFlags: 0
